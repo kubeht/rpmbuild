@@ -1,0 +1,25 @@
+#!/bin/bash
+
+CMD="/opt/activemq/bin/linux-x86-64/activemq"
+if [ -f /opt/newrelic/activemq/newrelic.jar ] ; then
+	echo "found /opt/newrelic/activemq/newrelic.jar"
+    export EXTERN_NEWRELIC_AGENT="-javaagent:/opt/newrelic/activemq/newrelic.jar"
+fi
+
+usage () {
+    echo "Usage: service ht-activemq { console | start | stop | restart | status | dump } "
+    RETVAL=1
+}
+
+case "$1" in
+    console) exec $CMD console ;;
+    start) exec $CMD start ;;
+    stop) exec $CMD stop ;;
+    restart) exec $CMD restart ;;
+    status) exec $CMD status ;;
+    dump) exec $CMD dump ;;
+    *) usage ;;
+esac
+
+exit $RETVAL
+

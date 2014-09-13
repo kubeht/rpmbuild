@@ -1,0 +1,33 @@
+#!/bin/bash
+# description: Tomcat Start Stop Restart
+# processname: tomcat
+# chkconfig: 234 20 80
+# config: /etc/sysconfig/tomcat7
+
+[ -f /etc/sysconfig/tomcat7 ] && . /etc/sysconfig/tomcat7
+
+export JAVA_OPTS=$JAVA_OPTS
+export CATALINA_HOME=$CATALINA_HOME
+
+case $1 in
+start)
+  echo "attempting to start"
+  su tomcat -c 'sh $CATALINA_HOME/bin/startup.sh'
+  ;;
+stop)
+  ps -efww |egrep '/usr/local/tomcat7' >> /dev/null
+  if [ $? -eq 1 ];then
+    echo 'Tomcat not started'
+  else
+    su tomcat -c 'sh $CATALINA_HOME/bin/shutdown.sh'
+    sleep 5
+    ps -efww |grep '/usr/local/tomcat7' |awk '{print $2}' |xargs kill -9
+  fi
+  ;;
+restart)
+  $0 stop
+  sleep 5
+  $0 start
+  ;;
+esac
+exit 0
