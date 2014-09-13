@@ -6,6 +6,16 @@ rpmbuild
 - rpmbuild binary must be installed.  A vagrant file is included which has rpmbuild for Mac and Windows users.
 
 # Usage
+## Start the VM
+```
+vagrant up
+```
+
+## install rpmbuild if VM is just created
+```
+sudo yum install rpm-build
+```
+
 ## Building a RPM
 - Clone this repo.
 

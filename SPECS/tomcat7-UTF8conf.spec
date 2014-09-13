@@ -33,5 +33,4 @@ rsync -av $RPM_SOURCE_DIR/conf/server.xml $RPM_BUILD_ROOT/usr/local/tomcat7/conf
 %post
 
 %changelog
-- Inital add, check git log for updates
 

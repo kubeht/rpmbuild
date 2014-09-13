@@ -68,4 +68,3 @@ perl -p -i -e 's/((-DmulticastUri)=(.+))/"$2=multicast:\/\/default\?group=hsa"/g
 
 
 %changelog
-- Inital add, check git log for updates

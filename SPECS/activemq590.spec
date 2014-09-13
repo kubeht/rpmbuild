@@ -97,4 +97,3 @@ rsync -av $RPM_SOURCE_DIR/init.d/ht-activemq $RPM_BUILD_ROOT/etc/init.d/ht-activ
 
 
 %changelog
-- Inital add, check git log for updates

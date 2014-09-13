@@ -35,4 +35,3 @@ cp $RPM_SOURCE_DIR/init/tomcat7 $RPM_BUILD_ROOT/etc/init.d
 chown -R tomcat.tomcat /usr/local/tomcat7
 
 %changelog
-- Inital add, check git log for updates
